@@ -1,12 +1,14 @@
-class Star{
- private float myX, myY;
- public Star(){
-   myX = (float)Math.random()*1000;
-   myY = (float)Math.random()*1000;
- }
- public void show(){
-   noStroke();
-   fill(255);
-   ellipse(myX,myY,3,3);
- }
+class Stars {
+    private int myX, myY, myColor;
+
+    public Stars() {
+        myX = (int)(Math.random() * 800);
+        myY = (int)(Math.random() * 800);
+        myColor = color((int)(Math.random() * 250), (int)(Math.random() * 250), (int)(Math.random() * 250));
+    }
+
+    public void show() {
+        fill(myColor);
+        ellipse(myX, myY, 3, 3);
+    }
 }
