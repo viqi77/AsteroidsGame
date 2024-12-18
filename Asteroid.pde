@@ -1,90 +1,55 @@
-class Asteroid extends Floater {
-  private int rotSpeed;
-  private int dilation;
-  private int randColor;
-//
-  public Asteroid (int ranColor) {
-    dilation = (int)(Math.random()*2)+2;
-    rotSpeed = (int)(Math.random()*2)-1;
-    ranColor = (int)(Math.random()*5);
-
-      xCorners = new int[] {
-        (int)(Math.random()*6)-6*dilation, 
-        (int)(Math.random()*3)-9*dilation, 
-        (int)(Math.random()*9)-13*dilation, 
-        (int)(Math.random()*3)-17*dilation, 
-        (int)(Math.random()*8)-14*dilation, 
-        (int)(Math.random()*13)-6*dilation, 
-        (int)(Math.random()*3)+5*dilation, 
-        (int)(Math.random()*7)+10*dilation, 
-        (int)(Math.random()*6)+11*dilation,
-        (int)(Math.random()*11)*dilation
-      };
-      yCorners = new int[] {
-        (int)(Math.random()*2)+12*dilation, 
-        (int)(Math.random()*3)+9*dilation, 
-        (int)(Math.random()*9)*dilation, 
-        (int)(Math.random()*9)-9*dilation, 
-        (int)(Math.random()*4)-13*dilation, 
-        (int)(Math.random()*2)-14*dilation, 
-        (int)(Math.random()*6)-13*dilation, 
-        (int)(Math.random()*8)-13*dilation, 
-        (int)(Math.random()*8)+2*dilation,
-        (int)(Math.random()*5)+9*dilation
-      };
-
-      if (ranColor == 0) {
-        myColor = #6c727d;
-      } else if (randColor == 1) {
-        myColor = #717781;
-      } else if (randColor == 2) {
-        myColor = #767c86;
-      } else if (randColor == 3) {
-        myColor = #7b818b;
-      } else {
-        myColor = #808690;
-      }
-
-      corners = xCorners.length;
-      myCenterX = (int)(Math.random()*width);
-      myCenterY = (int)(Math.random()*height);
-      
-      myPointDirection = (int)(Math.random()*360);
-
+class Asteroid extends Floater{
+  private double rotSpeed; 
+  private int size;
+  public Asteroid(){
+    rotSpeed = Math.random()*5;
+    myColor = color(169,169,169);
+    myCenterX = Math.random()*2000;
+    myCenterY = Math.random()*2000;
+    myXspeed = (Math.random()*2)-1;
+    myYspeed = (Math.random()*2)-1;
+    myPointDirection = Math.random()*360;
   }
-  public void move() {
+  public void move(){
     turn(rotSpeed);
     super.move();
   }
-
-  public int getDilation() {
-    return dilation;
+  public void setAMC(){
+    myCenterX = Math.random()*2000;
+    myCenterY = Math.random()*2000;
+    
   }
-/*  public double getDirectionX() { 
-        return myDirectionX; 
-    }
-    public double getDirectionY() { 
-        return myDirectionY; 
-    }*/
-    public double getX() { 
-        return myCenterX; 
-    }
-    public double getY() { 
-        return myCenterY; 
-    }
-    public double getPointDirection() {
-        return myPointDirection;
-    }
-    public double getXSpeed(){
-    return myXspeed;
+  public double getMyCenterX(){
+    return myCenterX;
   }
-  public double getYSpeed(){
-    return myYspeed;
+  public double getMyCenterY(){
+    return myCenterY;
   }
-  public void setX(int speed) {
-     myCenterX = speed;
-   }
-   public void setY(int speed) {
-     myCenterY = speed;
-   }
+  public void setSpAsteroids(){
+    corners = (int)(Math.random()*20);
+     size = (int)(Math.random()*2)+2;
+    xCorners = new int[corners];
+    for (int i = 0; i < corners; i++){
+      xCorners[i] = ((int)(Math.random()*30)-15)*size;
+    }
+    yCorners = new int[corners];
+    for (int j = 0; j < corners; j++){
+      yCorners[j] = ((int)(Math.random()*30)-15)*size;
+    }  
+  }
+  public void setClassicAsteroids(){
+    corners = 7;
+    size = (int)(Math.random()*4)+2;    
+    xCorners = new int []{6,6,8,9,-4,-12,-5};
+    yCorners = new int []{-3,0,4,7,12,6,-5};
+    for (int i = 0; i < corners; i++){
+      xCorners[i] = xCorners[i] * size;
+    }
+    for (int i = 0; i < corners; i++){
+      yCorners[i] = yCorners[i] * size;
+    }    
+  }
+  public int getSize(){
+    return size;
+  }
 }
