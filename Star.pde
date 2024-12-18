@@ -1,17 +1,11 @@
-class Star 
-{
-  private int myX, myY;
-  private int colorone, colortwo, colorthree;
-  public Star(){
-    noStroke();
-    myX = (int)(Math.random()*500);
-    myY = (int)(Math.random()*500);
-    colorone =  (int)(Math.random()*255);
-    colortwo =  (int)(Math.random()*255);
-    colorthree =  (int)(Math.random()*255);
+class Stars {
+  private int myX, myY, myColor;
+  public Stars() {
+    myX = (int)(Math.random()*800);
+    myY = (int)(Math.random()*800);
   }
-  public void show(){
-    fill(colorone, colortwo, colorthree);
-    ellipse(myX, myY, 3, 3);
+  public void show() {
+    fill ((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
+    ellipse (myX, myY, 5, 5);
   }
-}
+} //test
