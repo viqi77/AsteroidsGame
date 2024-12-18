@@ -8,4 +8,4 @@ class Stars {
     fill ((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
     ellipse (myX, myY, 5, 5);
   }
-} //test
+} 
