@@ -2,7 +2,7 @@ class Asteroid extends Floater {
   private int rotSpeed;
   private int dilation;
   private int randColor;
-
+//
   public Asteroid (int ranColor) {
     dilation = (int)(Math.random()*2)+2;
     rotSpeed = (int)(Math.random()*2)-1;
