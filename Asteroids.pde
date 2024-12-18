@@ -1,32 +1,28 @@
-class Asteroid extends Floater {
-    private double rotationSpeed; 
-
-    public Asteroid() {
-        // Initialize inherited variables
-        corners = 6; 
-        xCorners = new int[] {10, 20, 30, 25, 15, 5};
-        yCorners = new int[] {0, 10, 0, -15, -20, -10};
-        myColor = color(200); 
-        myCenterX = Math.random() * 800; 
-        myCenterY = Math.random() * 800; 
-        myXspeed = Math.random() * 2 - 1; 
-        myYspeed = Math.random() * 2 - 1; 
-        myPointDirection = Math.random() * 360; // Random initial direction
-        rotationSpeed = Math.random() * 2 - 1; 
-    }
-
-    public void move() {
-        super.move(); 
-        turn(rotationSpeed); // Rotate by asteroid's speed
-    }
-
-    // Getter for X position
-    public double getCenterX() {
-        return myCenterX;
-    }
-
-    // Getter for Y position
-    public double getCenterY() {
-        return myCenterY;
-    }
+class Asteroid extends Floater{
+  private double rotSpeed;
+  private int size;
+ public Asteroid(){
+ rotSpeed = (Math.random()*10)-5;
+ size = (int)(Math.random()*4);
+ corners = 6;
+ xCorners = new int[]{-10*size,-13*size, -10*size,6*size, 12*size,7*size};
+yCorners = new int[]{-8*size, 0*size, 9*size, 10*size, 0*size, -12*size};
+ myColor = color(15, 20, 200);   
+ myCenterX = (int)(Math.random()*500);
+ myCenterY = (int)(Math.random()*500);
+ myXspeed = (Math.random()*4)-2;
+ myYspeed = (Math.random()*4)-2;
+ myPointDirection = (Math.random()*360);
+ }
+ public void move(){
+   turn(rotSpeed); 
+   super.move();
+ }
+public float getCenterX(){
+  return (float) myCenterX; }
+  
+  public float getCenterY(){
+    return (float)myCenterY; }
+     
+  
 }
