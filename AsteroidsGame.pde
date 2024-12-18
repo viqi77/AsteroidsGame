@@ -48,7 +48,6 @@ public void draw()
           asteroids.remove(j);
           shots.remove(i);
           j--;
-//
           asteroids.add(new Asteroid());
           asteroidsHit++;
           break;
